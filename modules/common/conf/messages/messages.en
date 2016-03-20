@@ -1,0 +1,23 @@
+
+
+################################################################################################
+# COMMON
+
+reload=reload
+button=Launch demo modal using CoffeeScript
+
+computers=Computers
+computer.name=Name
+computer.introduced=Introduced
+computer.discontinued=Discontinued
+computer.company=Company
+
+modal.title=Modal title
+modal.text=This is a modal
+modal.close=Close
+
+
+error.unknown.title=Oops, an error occurred
+error.unknown.text=This exception has been logged with id <strong>{0}</strong>.
+error.notfound.title=Handler Not Found
+error.notfound.text=For request ''{0}''

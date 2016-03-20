@@ -1,0 +1,47 @@
+# WEB Routes
+# This file defines WEB application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET         /                               controllers.web.Application.index
+GET         /                            controllers.web.ApplicationController.index
+
+GET         /home                            controllers.web.ApplicationController.home
+GET         /signin                          controllers.web.ApplicationController.signIn
+GET         /signout                         controllers.web.ApplicationController.signOut
+GET         /authenticate/:provider          controllers.web.SocialAuthController.authenticate(provider)
+POST        /authenticate/credentials        controllers.web.CredentialsAuthController.authenticate
+
+GET         /signup                          controllers.web.SignUpController.signUpRequest
+POST        /signup                          controllers.web.SignUpController.signUpRequestRegistration
+GET         /signup/:token                   controllers.web.SignUpController.signUpCompletion(token)
+
+GET         /reset                           controllers.web.PasswordChangeController.startResetPassword
+POST        /reset                           controllers.web.PasswordChangeController.handleStartResetPassword
+GET         /reset/:token                    controllers.web.PasswordChangeController.specifyResetPassword(token)
+POST        /reset/                          controllers.web.PasswordChangeController.handleResetPassword
+
+GET         /change                          controllers.web.PasswordChangeController.startChangePassword
+POST        /change                          controllers.web.PasswordChangeController.handleChangePassword
+
+GET     /lang/$lang<(en|es)>		controllers.web.Application.selectLang(lang: String)
+
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /public/*file					controllers.web.Assets.public(path="/public", file: Asset)
+GET     /lib/*file						controllers.web.Assets.lib(path="/public/lib", file: Asset)
+GET     /css/*file						controllers.web.Assets.css(path="/public/stylesheets", file: Asset)
+GET     /js/*file							controllers.web.Assets.js(path="/public/javascripts", file: Asset)
+GET     /img/*file						controllers.web.Assets.img(path="/public/images", file: Asset)
+GET     /common/css/*file			controllers.web.Assets.commonCss(path="/public/lib/common/stylesheets", file: Asset)
+GET     /common/js/*file			controllers.web.Assets.commonJs(path="/public/lib/common/javascripts", file: Asset)
+GET     /common/img/*file			controllers.web.Assets.commonImg(path="/public/lib/common/images", file: Asset)
+
+GET     /assets/*file         controllers.web.Assets.at(path="/public", file)
+GET     /webjars/*file        controllers.WebJarAssets.at(file)
+
+GET     /rsc/*file						controllers.web.SharedResources.rsc(file: String)
+
+
+->  / common.Routes
