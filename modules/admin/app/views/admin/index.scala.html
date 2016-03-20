@@ -2,26 +2,7 @@
 
 @import controllers.admin.routes
 
-@theModals = {
-	<div class="modal fade" id="myAdminModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	  <div class="modal-dialog">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">@Messages("modal.close")</span></button>
-	        <h4 class="modal-title" id="myModalLabel">@Messages("modal.title")</h4>
-	      </div>
-	      <div class="modal-body">
-	        <p>@Messages("modal.text")</p>
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal">@Messages("modal.close")</button>
-	      </div>
-	    </div>
-	  </div>
-	</div>
-}
-
-@views.html.admin.main(title = message, modals = theModals) {
+@views.html.admin.main(title = message) {
 	
 	<div class="pull-right">
 		<img src="@routes.Assets.commonImg("play.svg")" width="250" style="margin: 10px 0 20px 0"></img>
@@ -29,18 +10,8 @@
 	</div>
 	<img class="pull-right" src="@routes.SharedResources.rsc("example.png")" style="margin: 10px 30px 0 0"></img>
 	
-	<div class="pull-right" style="margin: 10px 30px 0 0">
-		@if(messages.lang.code == "es") {
-			<a class="btn btn-default" href="@routes.Application.selectLang("en")">See in English</a>
-		} else {
-			<a class="btn btn-default" href="@routes.Application.selectLang("es")">Ver en español</a>
-		}
-	</div>
-	
 	<h1>@Messages("admin.title")</h1>
 	<h3>@message <a href="@routes.Application.index">@Messages("reload")</a></h3>
-
-	<button class="btn btn-primary btn-lg" id="btn-admin-modal">@Messages("button")</button>
 
 	<h4>@Messages("computers"):</h4>
 	<table class="table table-striped table-condensed">

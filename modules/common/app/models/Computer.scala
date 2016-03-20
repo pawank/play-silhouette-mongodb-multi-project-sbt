@@ -7,7 +7,7 @@ case class Computer(id: Long, name: String, introduced: Option[Date], discontinu
 object Computer {
 
   private val format = new java.text.SimpleDateFormat("yyyy-MM-dd")
-  private def optDate(str: String): Option[Date] = Some(format.parse(str))
+  private def optDate(str: String): Option[Date] = if (str.size > 0) Some(format.parse(str)) else None
 
   def list: List[Computer] = List(
     Computer(16, "Apple II", optDate("1977-04-01"), optDate("1993-10-01"), "Apple Inc."),
